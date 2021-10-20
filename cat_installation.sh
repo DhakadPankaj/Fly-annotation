@@ -1,4 +1,5 @@
 #Create a common directory to install all dependencies/tools
+
 export TOOLDIR="${HOME}/fly_annotation/tools"
 
 #create a conda environment(annotation) and install required CAT dependencies available on conda 
