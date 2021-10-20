@@ -1,7 +1,6 @@
 #Create a common directory to install all dependencies/tools
 export TOOLDIR="${HOME}/fly_annotation/tools"
 
-
 #create a conda environment(annotation) and install required CAT dependencies available on conda 
 conda create -y -n annotation -c conda-forge -c bioconda -c defaults python=3.7 pyfasta luigi seaborn pandas ete3 pysam numpy scipy bx-python bcbio-gff biopython parasail-python configobj sqlalchemy samtools bamtools wiggletools bedtools phame
 conda activate annotation
