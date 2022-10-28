@@ -2,13 +2,15 @@
 
 sp_list=$1
 
+group_tax_id=$2
+
 #ENA API to download metadata for Drosophila RNAseq. Search rules/fields are saved at ENA Rulespace(Elixir login)
 
 #curl link without aspera links and md5 checksum
 #curl -o rnaseq_fly_rawmetadata.tsv -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'result=read_run&query=tax_tree(7214)%20AND%20library_source%3D%22TRANSCRIPTOMIC%22%20AND%20library_strategy%3D%22RNA-Seq%22%20AND%20library_layout%3D%22PAIRED%22&fields=tax_id%2Cscientific_name%2Csub_species%2Caccession%2Cstudy_accession%2Crun_accession%2Csample_accession%2Csubmission_accession%2Cexperiment_accession%2Cdescription%2Cproject_name%2Ctissue_type%2Csample_description%2Ccollection_date%2Cdev_stage%2Csex%2Cisolation_source%2Cinstrument_platform%2Clibrary_layout%2Clibrary_source%2Clibrary_strategy%2Clibrary_selection%2Clibrary_name%2Csra_bytes%2Cbase_count%2Cread_count&limit=0&format=tsv' "https://www.ebi.ac.uk/ena/portal/api/search"
 
 #curl api link with aspera links and md5 checksum
-curl -o rnaseq_fly_rawmetadata.tsv -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'result=read_run&query=tax_tree(7214)%20AND%20library_source%3D%22TRANSCRIPTOMIC%22%20AND%20library_strategy%3D%22RNA-Seq%22%20AND%20library_layout%3D%22PAIRED%22&fields=tax_id%2Cscientific_name%2Csub_species%2Caccession%2Cstudy_accession%2Crun_accession%2Csample_accession%2Csubmission_accession%2Cexperiment_accession%2Cdescription%2Cproject_name%2Ctissue_type%2Csample_description%2Ccollection_date%2Cdev_stage%2Csex%2Cisolation_source%2Cinstrument_platform%2Clibrary_layout%2Clibrary_source%2Clibrary_strategy%2Clibrary_selection%2Clibrary_name%2Csra_bytes%2Cbase_count%2Cread_count%2Cfastq_aspera%2Cfastq_md5&format=tsv' "https://www.ebi.ac.uk/ena/portal/api/search"
+curl -o rnaseq_fly_rawmetadata.tsv -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "result=read_run&query=tax_tree(${group_tax_id})%20AND%20library_source%3D%22TRANSCRIPTOMIC%22%20AND%20library_strategy%3D%22RNA-Seq%22%20AND%20library_layout%3D%22PAIRED%22&fields=tax_id%2Cscientific_name%2Csub_species%2Caccession%2Cstudy_accession%2Crun_accession%2Csample_accession%2Csubmission_accession%2Cexperiment_accession%2Cdescription%2Cproject_name%2Ctissue_type%2Csample_description%2Ccollection_date%2Cdev_stage%2Csex%2Cisolation_source%2Cinstrument_platform%2Clibrary_layout%2Clibrary_source%2Clibrary_strategy%2Clibrary_selection%2Clibrary_name%2Csra_bytes%2Cbase_count%2Cread_count%2Cfastq_aspera%2Cfastq_md5&format=tsv" "https://www.ebi.ac.uk/ena/portal/api/search"
 
 cat rnaseq_fly_rawmetadata.tsv |grep  "_1.fastq.gz" > Only_paired_splitted_fastq_rnaseqData.tsv
 
