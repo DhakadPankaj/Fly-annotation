@@ -60,3 +60,11 @@ cat arthropoda/Rawdata/* > proteins.fasta
 ```
 - For other group of organisms you can find more specific protein dataset on: https://www.orthodb.org/?page=filelist
 
+### Genome alignments
+CAT requires a HAL (Hierarchical Alignment Format) multiple genome alignment, which represents a genome history including any available ancestral reconstructions in an efficiently accessible format.
+
+**Progressive Cactus** is a very efficient tool to generate HAL genome alignments. Cactus requires softmasked genome assemblies and a guide phylogenetic tree relating them. More detailed instructions can be found here: https://github.com/ComparativeGenomicsToolkit/cactus/blob/master/doc/progressive.md
+
+#### 1. Generate a species tree
+- **BUSCO analysis:** run BUSCO using gene sets available on OrthoDB.
+
