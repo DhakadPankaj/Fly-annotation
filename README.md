@@ -67,4 +67,9 @@ CAT requires a HAL (Hierarchical Alignment Format) multiple genome alignment, wh
 
 #### 1. Generate a species tree
 - **BUSCO analysis:** run BUSCO using gene sets available on OrthoDB.
+- This script ```BUSCO_analysis/phylo_tree.sh``` can then be used to aggregate BUSCOs into clusters of 1:1 orthologs and then multiple sequence alignment using mafft.
+  - Generate gene tree inference using **IQTREE2**
+  - Generate species tree inference using **ASTRAL**
+
+#### 2. *Optional: 
 
