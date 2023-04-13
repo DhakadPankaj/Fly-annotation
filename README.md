@@ -71,5 +71,7 @@ CAT requires a HAL (Hierarchical Alignment Format) multiple genome alignment, wh
   - Generate gene tree inference using **IQTREE2**
   - Generate species tree inference using **ASTRAL**
 
-#### 2. *Optional: 
+#### 2. *Optional: If there are large number of species (like in this project >250 spp.) it's better to divide the big phylogenetic tree into subclades/groups of closely related species. 
+- ```[extract_subclades_1.py](https://github.com/pd16/Fly-annotation/blob/main/cactus_alignment/extract_subclades_1.py)``` creates the rooted species tree for each subclades given a phylogenetic distance (distance of farthest leaf in a subclade).
+- 
 
