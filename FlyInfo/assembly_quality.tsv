@@ -1,4 +1,4 @@
-label	assembly_qual
+label	assembly_qual(Percentage of genome covered by contigs more than 1MB)
 DROSOPHILA_AFF__CHAUVACAE_BK-2020	17.95
 DROSOPHILA_ACUTILABELLA	10.46
 DROSOPHILA_ACANTHOPTERA	100.00
