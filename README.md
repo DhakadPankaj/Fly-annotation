@@ -76,5 +76,15 @@ If there are large number of species (like in this project >250 spp.) it's bette
 - [cactus_alignment/extract_subclades_1.py](cactus_alignment/extract_subclades_1.py) creates the rooted species tree for each subclades given a phylogenetic distance (distance of farthest leaf in a subclade).
 
 ### Running CAT
-
+Prerequisites before running CAT:
+- Get Augustus-cgp trained model parameters from here: http://bioinf.uni-greifswald.de/augustus/datasets/ and make sure Augustus/config folder is writable.
+  If you cannot get write permissions, then you will need to copy [Augustus/config] directory to the current directory and provide this path to CAT ([--cgp-param path/to/config/folder]).
+- Prepare a CAT config file as described here: https://github.com/ComparativeGenomicsToolkit/Comparative-Annotation-Toolkit#config-file
+  ```bash
+  luigi --module cat RunCat --hal=alignment.hal --ref-genome=Reference_Species --config=config.file \
+  --work-dir work_dir --workDir toil_tmpDIR --out-dir out_dir --augustus --local-scheduler --augustus-species fly --augustus-cgp \
+  --cgp-param augustus_cfgs/cgp_parameters.cfg --augustus-cgp-cfg-template augustus_cfgs/cgp_extrinsic_template.cfg \
+  --tm-cfg augustus_cfgs/extrinsic.ETM1.cfg --tmr-cfg augustus_cfgs/extrinsic.ETM2.cfg --assembly-hub --binary-mode local --workers=65 --maxCores=12
+  ```
+  
 [work in progress...]
