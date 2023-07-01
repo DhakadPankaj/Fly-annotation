@@ -78,7 +78,7 @@ If there are large number of species (like in this project >250 spp.) it's bette
 ### Running CAT
 Prerequisites before running CAT:
 - Get Augustus-cgp trained model parameters from here: http://bioinf.uni-greifswald.de/augustus/datasets/ and make sure Augustus/config folder is writable.
-  If you cannot get write permissions, then you will need to copy [Augustus/config] directory to the current directory and provide this path to CAT ([--cgp-param path/to/config/folder]).
+  If you cannot get write permissions, then you will need to copy ```Augustus/config``` directory to the current directory and provide this path to CAT (```--cgp-param path/to/config/folder```).
 - Prepare a CAT config file as described here: https://github.com/ComparativeGenomicsToolkit/Comparative-Annotation-Toolkit#config-file
   ```bash
   luigi --module cat RunCat --hal=alignment.hal --ref-genome=Reference_Species --config=config.file \
