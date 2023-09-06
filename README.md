@@ -36,7 +36,7 @@ download_assembly_ftp() {
 ##### *Optional: Repeatmasking 
 It is best to softmask repeats in the genome as they will affect the gene predictions. 
 
-RepeatModeler2 can be used to generate individualized repeat libraries for each genome and then using these repeat libraries RepeatMasker can be run to softmask the genomes. To setup the conda environment for repeat masking follow the instructions given in: ```cactus_alignment/setup_repeatmodeler.sh``` and to run the RepeatModeler2/RepeatMasker you can follow the instructions provided in the [workshop](https://github.com/ISUgenomics/bioinformatics-workbook/blob/master/dataAnalysis/ComparativeGenomics/RepeatModeler_RepeatMasker.md)
+```RepeatMasker --species drosophila -pa 16 -xsmall genome```
 
 #### 2. Get all trancriptional data available for your genomes (ESTs, RNA-seq, Transcripts, Isoseq)
 CAT uses extrinsic hints (such as RNA-seq, Iso-seq and protein data) to improve the annotation. In AugustusTMR mode, extrinsic hints help fill in missing information in the alignment and resolve evolutionary changes. In AugustusCGP mode, extrinsic hints correct for the inherent false positives produced by the ab initio gene prediction.
