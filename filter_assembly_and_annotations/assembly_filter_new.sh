@@ -1,5 +1,8 @@
 #! /bin/bash
 
+#############################################
+# Choose best genomes available for a species. 
+#############################################
 
 #function to download genome from NCBI
 #Usage: download_assembly_ftp species_name assembly_acc
@@ -44,8 +47,8 @@ datasets download genome taxon 7214  --exclude-seq --exclude-genomic-cds --exclu
 
 
 dataformat tsv genome --fields $fields --package allAssemblies.dataset.zip | tail -n +2 > all.tmp
+# Download Refseq genomes info. (Exclude "GCA_004354385.2" a non-refseq assembly* May change in future) 
 dataformat tsv genome --fields $fields --package refonly.dataset.zip | tail -n +2|grep -v "GCA_004354385.2"|sort -k1 > ref_assemblies.tmp
-
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate annotation
@@ -84,15 +87,12 @@ rm -r tmp/
 fi
 
 #Species with only nanopore genomes
-
 grep -Fxvf <(cut -f1,2 all.tmp|sort -u) <(cut -f1,2 nanopore_genomes.tsv|sort) > only_nanopore.tmp
 
 #Species with only NCBI genomes
-
 grep -Fxvf <(cut -f1,2 nanopore_genomes.tsv|sort) <(cut -f1,2 all.tmp|sort -u) > only_ncbi.tmp
 
 #Species with both NCBI & nanopore genomes ()
-
 grep -Fxf <(cut -f1,2 all.tmp|sort -u) <(cut -f1,2 nanopore_genomes.tsv|sort) > both.tmp
 
 
@@ -118,7 +118,6 @@ parallel -j 10 --colsep "\t"  download_only_refseq :::: <(grep -Fxf <(cut -f1,2 
 
 
 #download Genebank genomes
-
 download_only_genebank(){
 acc=`grep -w "${1}$(printf '\t')${2}" all.tmp |sort -t$'\t' -k6,6 -k12,12nr -k9,9n|head -1|cut -f3`
 sp=`echo $1|tr " " "_"`
@@ -136,22 +135,18 @@ fi
 
 export -f download_only_genebank
 export -f download_assembly_ftp
-
 parallel -j 10 --colsep "\t"  download_only_genebank :::: <(grep -Fxvf <(grep -Fxf <(cut -f1,2 ref_assemblies.tmp) <(cat only_ncbi.tmp )) only_ncbi.tmp) ::: ${refseq_dir}
 
 
 #download NCBI genomes and compare with nanopore
-
 export -f download_only_genebank
 export -f download_assembly_ftp
 export -f download_only_refseq
 mkdir -p compare_dir
-
 parallel -j 10 --colsep "\t"  download_only_refseq :::: <(grep -Fxf <(cut -f1,2 ref_assemblies.tmp) both.tmp) ::: "compare_dir"
 parallel -j 5 --colsep "\t"  download_only_genebank :::: <(grep -Fxvf <(cut -f1,2 ref_assemblies.tmp) both.tmp) ::: "compare_dir"
 
 #compare with nanopore
-
 compare(){
 nanopore_dir="/data/home/s2215768/fly_annotation/data/CAT_genomes/masked_genomes"
 refseq_dir="/data/home/s2215768/fly_annotation/data/CAT_genomes/refseq_genomes"
@@ -201,3 +196,7 @@ export -f compare
 >Selected_refseq.tsv
 >Selected_genomes.tsv
 parallel -j 10 --colsep "\t"  compare :::: both.tmp
+
+# Get species list with selected assembly name (Check path to assemblies before running this)
+./GetSpeciesList.sh
+
