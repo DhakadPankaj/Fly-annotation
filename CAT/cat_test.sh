@@ -1,1 +1,0 @@
-luigi --module cat RunCat --hal=test_data/vertebrates.hal --ref-genome=mm10  --config=test_data/test.config --workDir $(pwd)/temp_test_work_dir --work-dir $(pwd)/test_work_dir --out-dir $(pwd)/test_out_dir  --augustus --augustus-cgp --augustus-pb --assembly-hub --binary-mode local --batchSystem singleMachine --maxCores 5 --disableCaching
