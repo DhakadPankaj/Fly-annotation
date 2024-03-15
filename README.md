@@ -9,7 +9,7 @@ The provided scripts are used to annotate ~250 Drosophila genomes using Comparat
 There are steps that will need to be performed before you can run the CAT pipeline.
 
 ### CAT installation 
-To setup the conda environment for annotation and install CAT and all the dependencies follow the steps and instructions given in: [5_CAT/cat_installation.sh](CAT/cat_installation.sh)
+To setup the conda environment for annotation and install CAT and all the dependencies follow the steps and instructions given in: [cat_installation.sh](5_CAT/cat_installation.sh)
 
 ### Prerequisite data for better gene prediction
 
@@ -70,13 +70,13 @@ CAT requires a HAL (Hierarchical Alignment Format) multiple genome alignment, wh
 
 #### 1. Generate a species tree
 - **BUSCO analysis:** run BUSCO using gene sets available on OrthoDB.
-- This script [3_BUSCO/phylo_buscov5.sh](3_BUSCO/phylo_buscov5.sh) can then be used to aggregate BUSCOs into clusters of 1:1 orthologs and then multiple sequence alignment using mafft.
+- This script [phylo_buscov5.sh](3_BUSCO/phylo_buscov5.sh) can then be used to aggregate BUSCOs into clusters of 1:1 orthologs and then multiple sequence alignment using mafft.
   - Generate gene tree inference using **IQTREE2**
   - Generate species tree inference using **ASTRAL**
 
 #### 2. *Optional
 If there are large number of species (like in this project >250 spp.) it's better to divide the big phylogenetic tree into subclades/groups of closely related species and/or choose reference species for each subclade. 
-- [cactus_alignment/extract_subclades_1.py](cactus_alignment/extract_subclades_1.py) creates the rooted species tree for each subclades given a phylogenetic distance (distance of farthest leaf in a subclade).
+- [extract_subclades_1.py](4_Cactus_Alignment/extract_subclades_1.py) creates the rooted species tree for each subclades given a phylogenetic distance (distance of farthest leaf in a subclade).
 
 ### Running CAT
 Prerequisites before running CAT:
