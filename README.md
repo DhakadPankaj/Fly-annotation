@@ -9,12 +9,12 @@ The provided scripts are used to annotate ~250 Drosophila genomes using Comparat
 There are steps that will need to be performed before you can run the CAT pipeline.
 
 ### CAT installation 
-To setup the conda environment for annotation and install CAT and all the dependencies follow the steps and instructions given in: [CAT/cat_installation.sh](5_CAT/cat_installation.sh)
+To setup the conda environment for annotation and install CAT and all the dependencies follow the steps and instructions given in: [5_CAT/cat_installation.sh](CAT/cat_installation.sh)
 
 ### Prerequisite data for better gene prediction
 
 #### 1. Obtain genome files and mask repeats
-Here is a function to download genome assembly from NCBI provided genome accession and species name. Or you could use your self assembled genomes.
+Here is a function to download genome assembly from NCBI provided genome accession and species name. Or you could use your genome assembly.
 
 Usage: ```download_assembly_ftp species_name genome_accession```
 ```bash
@@ -70,7 +70,7 @@ CAT requires a HAL (Hierarchical Alignment Format) multiple genome alignment, wh
 
 #### 1. Generate a species tree
 - **BUSCO analysis:** run BUSCO using gene sets available on OrthoDB.
-- This script [BUSCO_analysis/phylo_tree.sh](BUSCO_analysis/phylo_tree.sh) can then be used to aggregate BUSCOs into clusters of 1:1 orthologs and then multiple sequence alignment using mafft.
+- This script [3_BUSCO/phylo_buscov5.sh](3_BUSCO/phylo_buscov5.sh) can then be used to aggregate BUSCOs into clusters of 1:1 orthologs and then multiple sequence alignment using mafft.
   - Generate gene tree inference using **IQTREE2**
   - Generate species tree inference using **ASTRAL**
 
@@ -90,4 +90,4 @@ Prerequisites before running CAT:
   --tm-cfg augustus_cfgs/extrinsic.ETM1.cfg --tmr-cfg augustus_cfgs/extrinsic.ETM2.cfg --assembly-hub --binary-mode local --workers=65 --maxCores=12
   ```
   
-[work in progress...]
+
