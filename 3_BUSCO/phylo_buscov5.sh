@@ -10,7 +10,7 @@ species_tree="OFF"
 batchscript="OFF"
 
 # Parse command line arguments
-while true ; do
+while [[ $# -gt 0 ]]; do
     case "$1" in
         -a|--Supermatrix)
             busco_supermatrix=$2; shift 2;;

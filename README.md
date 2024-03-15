@@ -2,11 +2,14 @@
 
 The provided scripts are used to annotate ~250 Drosophila genomes using Comparative Annotation Toolkit (CAT). Here is the original publication of CAT which provides detailed background information necessary to understand how CAT works: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6028123/  and the [GitHub repo](https://github.com/ComparativeGenomicsToolkit/Comparative-Annotation-Toolkit)
 
+## Workflow
+![Image Description](Figures/workflow.png)
+
 ## General steps before runnig CAT
 There are steps that will need to be performed before you can run the CAT pipeline.
 
 ### CAT installation 
-To setup the conda environment for annotation and install CAT and all the dependencies follow the steps and instructions given in: [CAT/cat_installation.sh](CAT/cat_installation.sh)
+To setup the conda environment for annotation and install CAT and all the dependencies follow the steps and instructions given in: [CAT/cat_installation.sh](5_CAT/cat_installation.sh)
 
 ### Prerequisite data for better gene prediction
 
