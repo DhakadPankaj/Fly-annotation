@@ -89,5 +89,7 @@ Prerequisites before running CAT:
   --cgp-param augustus_cfgs/cgp_parameters.cfg --augustus-cgp-cfg-template augustus_cfgs/cgp_extrinsic_template.cfg \
   --tm-cfg augustus_cfgs/extrinsic.ETM1.cfg --tmr-cfg augustus_cfgs/extrinsic.ETM2.cfg --assembly-hub --binary-mode local --workers=65 --maxCores=12
   ```
-  
 
+### Running BRAKER3
+Recover genes missed by CAT pipeline:
+- Diptera odb10 proteins and RNAseq used as extrinsic hints.

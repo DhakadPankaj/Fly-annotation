@@ -1,4 +1,11 @@
 #!/bin/bash
+# This script is used to run the BRAKER3 gene annotation pipeline for multiple genomes.
+# It requires the following inputs:
+# - A genome_info file containing the species name and their corresponding assemblies.
+# - A protein sequence file named "Diptera_noDupl.faa".
+# - RNA-seq data in the form of compressed fastq files.
+
+# Note: This script assumes that the necessary software and data files are already set up and available in the specified directories.
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate braker3
