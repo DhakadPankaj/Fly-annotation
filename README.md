@@ -1,6 +1,6 @@
 # Drosophila genome annotation pipeline
 
-The provided scripts are used to annotate ~250 Drosophila genomes using Comparative Annotation Toolkit (CAT). Here is the original publication of CAT which provides detailed background information necessary to understand how CAT works: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6028123/  and the [GitHub repo](https://github.com/ComparativeGenomicsToolkit/Comparative-Annotation-Toolkit)
+The provided scripts are used to annotate ~250 Drosophila genomes using Comparative Annotation Toolkit (CAT) and BRAKER3. Here is the original publication of CAT which provides detailed background information necessary to understand how CAT works: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6028123/  and the [GitHub repo](https://github.com/ComparativeGenomicsToolkit/Comparative-Annotation-Toolkit)
 
 ## Workflow
 ![Image Description](Figures/workflow.png)
@@ -92,4 +92,13 @@ Prerequisites before running CAT:
 
 ### Running BRAKER3
 Recover genes missed by CAT pipeline:
-- Diptera odb10 proteins and RNAseq used as extrinsic hints.
+- Diptera odb10 proteins and RNAseq used as extrinsic hints. Detailed description: [BRAKER3](6_BRAKER3/README.md)
+
+### CATBRAKER
+We complemented CAT annotations with the BRAKER annotations. 
+- 1-1: Genes found by both pipelines. We compared the CDS length and chose gene with longest complete CDS.
+- 1-many & many-1: CAT preferred.
+- 1-0 & 0-1: All kept.
+
+### TE masking
+Transposable elements are identified by [Earlgrey](https://github.com/TobyBaril/EarlGrey). We filtered out genes if >30% of theire total exon length is within repeat regions.

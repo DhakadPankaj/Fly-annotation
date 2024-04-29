@@ -1,10 +1,16 @@
-1. `run_braker3.sh`, is used to run the BRAKER3 gene annotation pipeline for multiple genomes. 
+## run_braker3.sh
+
+This script is used to run the BRAKER3 gene annotation pipeline for multiple genomes. 
+
+### Inputs
 
 The script requires the following inputs:
 
 1. A `genome_info` file that contains the species name and their corresponding assemblies. This file is passed as a command-line argument when running the script.
 2. A protein sequence file named `Diptera_noDupl.faa` located in the same directory as the script.
 3. RNA-seq data in the form of compressed fastq files located in the directory `/data/home/s2215768/fly_annotation/data/rnaseq_all`.
+
+### Workflow
 
 The script first checks if the necessary input files are provided. If not, it exits with an error message.
 
@@ -14,4 +20,7 @@ The `run_braker` function is the main function that runs the BRAKER3 pipeline. I
 
 The script uses GNU `parallel` to run multiple instances of the `run_braker` function in parallel, allowing for efficient processing of multiple genomes.
 
-Please note that this script assumes that the necessary software (BRAKER3, AUGUSTUS, etc.) and data files are already set up and available in the specified directories. It also assumes that the Conda environment `braker3` is set up with all the necessary dependencies.
+### Notes
+
+This script assumes that the necessary software (BRAKER3, AUGUSTUS, etc.) and data files are already set up and available in the specified directories. It also assumes that the Conda environment `braker3` is set up with all the necessary dependencies.
+
