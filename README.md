@@ -3,7 +3,7 @@
 The provided scripts are used to annotate ~250 Drosophila genomes using Comparative Annotation Toolkit (CAT) and BRAKER3. Here is the original publication of CAT which provides detailed background information necessary to understand how CAT works: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6028123/  and the [GitHub repo](https://github.com/ComparativeGenomicsToolkit/Comparative-Annotation-Toolkit)
 
 ## Workflow
-![Image Description](Figures/Workflow.jpeg)
+![Image Description](Figures/Workflow.jpg)
 
 ## General steps before runnig CAT
 There are steps that will need to be performed before you can run the CAT pipeline.
